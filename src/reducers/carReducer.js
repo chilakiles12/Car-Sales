@@ -1,3 +1,5 @@
+//step 1, set up empty reducer and pulled initialState from app.js useState hook.
+
 export const initialState = {
   additionalPrice: 0,
   car: {
@@ -15,8 +17,13 @@ export const initialState = {
   ]
 };
 
-export const carReducer = (state = initialState, action) => {
+export const CarReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'TOGGLE_EDITING':
+      return {
+        ...state,
+        editing: !state.editing
+      };
     default:
       return state;
   }
